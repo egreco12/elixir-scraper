@@ -1,9 +1,18 @@
 defmodule Scraper do
-  use Application
+  @moduledoc """
+  Documentation for Scraper.
+  """
 
-  def start(_type, _args) do
-    # Although we don't use the supervisor name below directly,
-    # it can be useful when debugging or introspecting the system.
-    Scraper.Supervisor.start_link(name: Scraper.Supervisor)
+  @doc """
+  Hello world.
+
+  ## Examples
+
+      iex> Scraper.hello()
+      :world
+
+  """
+  def hello do
+    :world
   end
 end
