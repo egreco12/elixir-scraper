@@ -26,9 +26,6 @@ defmodule Scraper.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:maru, "0.14.0-pre.1"},
-      {:plug_cowboy, "~> 2.0"},
-      {:jason, "~> 1.1"}
     ]
   end
 end
