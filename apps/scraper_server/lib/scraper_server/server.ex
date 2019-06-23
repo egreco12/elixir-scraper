@@ -1,6 +1,7 @@
 defmodule ScraperServer.Server do
   use Plug.Router
-  
+  require Logger
+
   plug(:match)
 
   plug(Plug.Parsers,
@@ -24,6 +25,9 @@ defmodule ScraperServer.Server do
   end
 
   def start_link(_opts) do
-    Plug.Cowboy.http(__MODULE__, [])
+    with {:ok, [port: port] = config} <- Application.fetch_env(:scraper_server, __MODULE__) do
+      Logger.info("Starting server at http://localhost:#{port}/")
+      Plug.Cowboy.http(__MODULE__, [], config)
+    end
   end
 end
