@@ -28,3 +28,12 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env()}.exs"
+# config/config.exs
+config :scraper_server, ScraperServer.Server,
+  adapter: Plug.Cowboy,
+  plug: ScraperServer.API,
+  scheme: :http,
+  port: 8880
+
+config :scraper_server,
+  maru_servers: [ScraperServer.Server]
